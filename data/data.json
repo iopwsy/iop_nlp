@@ -1,0 +1,8 @@
+{
+ "abstract": {
+  "0": "The exponential growth of literature is constraining researchers' access to comprehensive information in related fields. While natural language processing may offer an effective solution, it remains hindered by the lack of datasets. In this article, we introduce a novel method for generating literature classification models through semi-supervised learning. We apply this method to battery, superconducting, topological, and AI in material science, and we achieve promising results. Importantly, our approach demonstrates that even with insufficient data, the initial model can facilitate understanding the relationships between different research fields."
+ },
+ "label": {
+  "0": 1
+ }
+}
