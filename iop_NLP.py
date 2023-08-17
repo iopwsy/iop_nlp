@@ -67,7 +67,7 @@ class iopNLP():
                      tf.keras.layers.Dense(1,activation='sigmoid')
                      ])
 
-    def fit_model(self):
+    def train_model(self):
         self.model.compile(
                            loss='binary_crossentropy', 
                            optimizer='adam', 
@@ -100,7 +100,7 @@ class iopNLP():
     def main(self):
         self.initial_model()
         self.create_model()
-        self.fit_model()
+        self.train_model()
         self.save_model()
 
 if __name__ == '__main__':

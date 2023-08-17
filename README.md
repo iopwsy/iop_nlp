@@ -1,4 +1,5 @@
-# Natural Language Process by IOP,CAS
+# Natural Language Process by The Institute of Physics of the Chinese Academy of Sciences
+# 中国科学院物理研究所自然语言处理
 ## NLP example including creating and train models by IOP
 
 * author: Siyuan Wu(吴思远), Tiannian Zhu(朱天念), Sijia Tu(涂思佳), Ruijuan Xiao(肖睿娟), Jie Yuan(袁洁), Quansheng Wu(吴泉生), Hong Li(李泓) and Hongming Weng(翁红明)
@@ -31,7 +32,7 @@
     }
 ```
 
-labeled as 0 represents it doesn't belong to it while labeled as 1 represents it belongs.
+labeled as `0` represents it doesn't belong to it while labeled as `1` represents it belongs.
 
 * What's need for it?
 
@@ -54,6 +55,10 @@ labeled as 0 represents it doesn't belong to it while labeled as 1 represents it
 For code in `iop_NLP.py`:
 
 * I create a class named <font color=green>iopNLP</font> for it
+* The function <font color=yellow>getData</font> is used to get data from `data\data.json`
+* The function <font color=yellow>initial_tokenizer</font> is used to tokenize the sentences
+* The function <font color=yellow>word2vec</font> is used to transfor sentences to vector
+* Your can create the model following: `initial_model`, `create_model`,`train_model` and `save_model`
 
 
 
