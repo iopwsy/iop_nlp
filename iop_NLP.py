@@ -17,14 +17,14 @@ class iopNLP():
     def __init__(self):
         self.__version__ = 1.0
         self.__author__ = 'iop'
-        self.num_epochs = 5
+        self.num_epochs = 15
         self.path = os.getcwd()
         self.name = 'iop_NLP_model'
         self.max_length = 512
     
     def getData(self):
         with open ('%s/data/data.json' % self.path,'r') as f:
-            self.data = pd.DataFrame(json.load(f))
+            self.data = pd.DataFrame(json.load(f)).T
 
     def initial_tokenizer(self):
         self.getData()
@@ -39,7 +39,7 @@ class iopNLP():
         with open('%s/model/text.json' % self.path,'a') as f:
             json.dump(self.tokenizer.to_json(),f)
     
-    def word2vec(self,tokenizer,sentences):
+    def text2vec(self,tokenizer,sentences):
         sequences = tokenizer.texts_to_sequences(sentences)
         return pad_sequences(sequences,maxlen = self.max_length,\
                             padding='post',truncating='post')
@@ -54,8 +54,10 @@ class iopNLP():
                                          self.data.label.values,\
                                          test_size=0.3
                                          )
-        self.training_padded = self.word2vec(self.tokenizer,training_sentences)
-        self.testing_padded = self.word2vec(self.tokenizer,testing_sentences)
+        self.training_label = self.training_label.astype(int)
+        self.testing_label = self.testing_label.astype(int)
+        self.training_padded = self.text2vec(self.tokenizer,training_sentences)
+        self.testing_padded = self.text2vec(self.tokenizer,testing_sentences)
 
     def create_model(self):
         self.model = tf.keras.Sequential([
@@ -94,7 +96,7 @@ class iopNLP():
         with open('%s/model/text.json' % self.path,'r') as f1:
             string = json.load(f1)
         tokenizer = tf.keras.preprocessing.text.tokenizer_from_json(string)
-        padding = self.word2vec(tokenizer,sentences)
+        padding = self.text2vec(tokenizer,sentences)
         return model.predict(padding)
     
     def main(self):

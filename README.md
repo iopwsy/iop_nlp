@@ -57,7 +57,7 @@ For code in `iop_NLP.py`:
 * I create a class named <font color=green>iopNLP</font> for it
 * The function <font color=yellow>getData</font> is used to get data from `data\data.json`
 * The function <font color=yellow>initial_tokenizer</font> is used to tokenize the sentences
-* The function <font color=yellow>word2vec</font> is used to transfor sentences to vector
+* The function <font color=yellow>text2vec</font> is used to transfor sentences to vector
 * Your can create the model following: `initial_model`, `create_model`,`train_model` and `save_model`
 
 
